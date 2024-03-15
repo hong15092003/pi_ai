@@ -3,9 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 class MarkDown extends StatelessWidget {
   final String _data;
-  const MarkDown(
-    this._data,
-  );
+  const MarkDown(this._data, {super.key});
   @override
   Widget build(BuildContext context) {
     return MarkdownBody(

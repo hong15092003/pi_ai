@@ -9,7 +9,7 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fullHeight = MediaQuery.of(context).size.height;
-    final fullWidth = MediaQuery.of(context).size.width;
+    // final fullWidth = MediaQuery.of(context).size.width;
     return Center(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -17,21 +17,21 @@ class HistoryPage extends StatelessWidget {
           children: [
             Positioned(
               top: 0,
-              right: 0,
+              left: 0,
               child: Container(
                 alignment: Alignment.bottomCenter,
-                padding: const EdgeInsets.only(bottom: 35, right: 20, left: 10),
+                padding: const EdgeInsets.only(bottom: 35, right: 10, left: 20),
                 height: fullHeight,
                 // width: 50,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(100, 35, 35, 35),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
                   border: Border(
-                    left: BorderSide(
-                      color: Color.fromARGB(255, 35, 35, 35),
+                    right: BorderSide(
+                      color: Colors.blue.withOpacity(0.1),
                       width: 2,
                     ),
                   ),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(5),
                   ),
                 ),

@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:pi_ai/controller/controller_data/handle_data.dart';
 
 class ControllerAPI {
+  bool loading = false;
   final _apiKey = "AIzaSyCGujlLQjjpEfid13hvw3wYX3gjbN482M4";
   final _baseURL =
       "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=";
@@ -79,6 +80,7 @@ class ControllerAPI {
   }
 
   void handleAfter(content, role) {
+    controllerAPI.loading = false;
     addContentBody(content, role);
     handleData.addContent(content, role);
   }

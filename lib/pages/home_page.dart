@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pi_ai/components/buttton/add_button.dart';
 import 'package:pi_ai/components/buttton/menu_button.dart';
+import 'package:pi_ai/components/buttton/stop_button.dart';
 import 'package:pi_ai/components/chat_box.dart';
 import 'package:pi_ai/components/chats_view.dart';
 import 'package:pi_ai/components/buttton/send_button.dart';
 import 'package:pi_ai/controller/controler_components/text_filed_controller.dart';
+import 'package:pi_ai/controller/controller_api/controller_api.dart';
 import 'package:pi_ai/pages/history_page.dart';
 import 'package:provider/provider.dart';
 
@@ -23,13 +25,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return isKeyboard;
   }
 
+  bool loading = false;
   double oldPadding = 0;
 
   @override
   Widget build(BuildContext context) {
     textFiledController = context.watch<TextFiledController>();
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 10, 10, 10),
+      backgroundColor: Colors.black,
       drawer: const HistoryPage(),
       body: Center(
         child: Stack(
@@ -73,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ChatBox(),
                     ),
                     const SizedBox(width: 10),
-                    const SendButton(),
+                    controllerAPI.loading
+                        ? const StopButton()
+                        : const SendButton(),
                   ],
                 ),
               ),

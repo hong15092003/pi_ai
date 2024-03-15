@@ -21,6 +21,7 @@ class _SendButtonState extends State<SendButton> {
         icon: Icons.arrow_upward_rounded,
         onPressed: () {
           if (textFiledController.content != '') {
+            controllerAPI.loading = true;
             handleData.addContent(textFiledController.content, 'user');
             controllerAPI.handleAPI(textFiledController.content, 'user');
             textFiledController.clear();
